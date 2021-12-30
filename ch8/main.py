@@ -32,14 +32,16 @@ async def read_items(user_ip: Optional[str] = Cookie(None)):
     return my_post
 
 
-@app.post("/write_memo/")
-def read_memo(memo: Memo, request: Request):
+@app.get("/write_memo/")
+def read_memo(title: str, body: str, request: Request):
     content = {"message": "메모를 서버에 저장합니다."}
     response = JSONResponse(content=content)
     print(request.client.host)
+
+    # 쿠키 저장
     response.set_cookie(key="user_ip", value=request.client.host)
 
-    post = Post(ip=request.client.host, t=memo)
+    post = Post(ip=request.client.host, t=Memo(title=title, body=body))
 
     try:
         with open("posts.json", "r") as json_file:
