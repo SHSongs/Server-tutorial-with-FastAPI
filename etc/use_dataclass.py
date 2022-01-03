@@ -17,3 +17,7 @@ player_1 = Player(pos=Point(3, 4), canFly=True)
 
 print("위치: ", player_1.pos.x, player_1.pos.y)
 print("날 수 있나?: ", player_1.canFly)
+
+pos1 = Point(1, 1)
+pos2 = Point(1, 1)
+print(pos1 == pos2)
