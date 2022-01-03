@@ -3,6 +3,11 @@ class Point:
         self.x = x
         self.y = y
 
+    def __eq__(self, other):
+        if other.__class__ is not self.__class__:
+            return NotImplemented
+        return (self.x, self.y) == (other.x, other.y)
+
 
 class Player:
     def __init__(
@@ -14,5 +19,10 @@ class Player:
 
 player_1 = Player(pos=Point(3, 4), canFly=True)
 
-print("위치: ", player_1.pos.x, player_1.pos.y)
-print("날 수 있나?: ", player_1.canFly)
+print(player_1)  # <__main__.Player object at 0x102a5c7c0>
+print("위치: ", player_1.pos.x, player_1.pos.y)  # 위치:  3 4
+print("날 수 있나?: ", player_1.canFly)  # 날 수 있나?:  True
+
+pos1 = Point(1, 1)
+pos2 = Point(1, 1)
+print(pos1 == pos2)  # False
