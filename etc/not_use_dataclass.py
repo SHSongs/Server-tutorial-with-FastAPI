@@ -25,4 +25,4 @@ print("날 수 있나?: ", player_1.canFly)  # 날 수 있나?:  True
 
 pos1 = Point(1, 1)
 pos2 = Point(1, 1)
-print(pos1 == pos2)  # False
+print(pos1 == pos2)
